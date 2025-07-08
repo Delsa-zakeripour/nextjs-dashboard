@@ -9,6 +9,12 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
+// useSearchParams- Allows you to access the parameters of the current URL. For example, the search params for this URL /dashboard/invoices?page=1&query=pending 
+//  would look like this: {page: '1', query: 'pending'}.
+// usePathname - Lets you read the current URL's pathname. For example, for the route /dashboard/invoices, usePathname would return '/dashboard/invoices'.
+// useRouter - Enables navigation between routes within client components programmatically. There are multiple methods you can use.
+
+
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParam);
     params.set("page", "1"); // Reset to the first page on new search
